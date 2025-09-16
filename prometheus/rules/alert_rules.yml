@@ -2,13 +2,13 @@ groups:
   - name: seaker.rules
     rules:
       - alert: HighCPU
-        expr: seaker_cpu_percent > 85
+        expr: seaker_cpu_percent > 1
         for: 30s
         labels:
           severity: critical
         annotations:
           summary: "High CPU usage ({{ $value }}%)"
-          description: "CPU usage is > 85% for more than 30s."
+          description: "CPU usage is > 1% for more than 30s."
 
       - alert: LowDiskRoot
         expr: (seaker_disk_total_gb{mount="root"} - seaker_disk_used_gb{mount="root"}) / seaker_disk_total_gb{mount="root"} * 100 < 10
@@ -20,10 +20,10 @@ groups:
           description: "Less than 10% free space on root."
 
       - alert: HighMemory
-        expr: (seaker_mem_used_gb / seaker_mem_total_gb) * 100 > 90
+        expr: (seaker_mem_used_gb / seaker_mem_total_gb) * 100 > 30
         for: 30s
         labels:
           severity: critical
         annotations:
           summary: "High memory usage"
-          description: "Memory usage > 90%."
+          description: "Memory usage > 30%."

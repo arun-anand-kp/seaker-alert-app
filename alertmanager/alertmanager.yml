@@ -2,20 +2,20 @@ global:
   resolve_timeout: 1m
 
 route:
-  receiver: 'slack_or_email'
+  receiver: 'uniquearun.akp@gmail.com'
   group_wait: 10s
   group_interval: 10m
   repeat_interval: 1h
 
 receivers:
-  - name: 'slack_or_email'
+  - name: 'email'
     # example: email
     email_configs:
-      - to: 'you@example.com'
-        from: 'alertmanager@example.com'
+      - to: 'uniquearun.akp@gmail.com'
+        from: 'arunanad.akp@gmail.com'
         smarthost: 'smtp.example.com:587'
-        auth_username: 'smtp_user'
-        auth_password: 'smtp_pass'
+        auth_username: 'arunanand.akp@gmail.com'
+        auth_password: '**********'
         auth_identity: ''
     # example: telegram (requires bot token & chat id)
     # webhook_configs or 3rd party integrations can be used; for telegram you can use a webhook relay or Alertmanager webhook receiver
